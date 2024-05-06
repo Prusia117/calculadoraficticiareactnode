@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Button from './components/Button'
-import { formatearDinero, calcularTotal } from './helpers/index';
+import { formatearDinero, calcularTotal, alerta } from './helpers/index';
 
 export default function App() {
 
@@ -29,8 +29,9 @@ export default function App() {
     const handleClickMinus = function () {
 
         if (cantidad <= MIN) {
-            alert('No puedes seleccionar menos de $0');
+            alerta('Error!', 'No puedes seleccionar menos de $0', 'error');
             return;
+
         }
 
         setCantidad(cantidad - STEP);
@@ -39,7 +40,7 @@ export default function App() {
     const handleClickPlus = function () {
 
         if (cantidad >= MAX) {
-            alert('No puedes seleccionar más de $20,000');
+            alerta('Error!', 'No puedes seleccionar más de $20,000', 'error');
             return;
         }
 

@@ -1,3 +1,5 @@
+import Swal from 'sweetalert2';
+
 const formatearDinero = valor => {
     const formatter = new Intl.NumberFormat('en-US', {
         style: 'currency',
@@ -31,7 +33,17 @@ const calcularTotal = (cantidad, meses) => {
     return total;
 }
 
+const alerta = function(titulo, texto, icono){
+    return Swal.fire({
+        title: titulo,
+        text: texto,
+        icon: icono,
+        confirmButtonText: 'ok'
+    });
+}
+
 export {
     formatearDinero,
-    calcularTotal
+    calcularTotal,
+    alerta
 };
